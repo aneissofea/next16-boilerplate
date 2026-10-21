@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.cursor
+.impeccable
+.next
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.env
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Next.js
+*.tsbuildinfo
+.vercel
+
+# Env files (secrets, e.g. CMS API keys)
+.env*
+!.env.example
