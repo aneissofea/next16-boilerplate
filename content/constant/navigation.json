@@ -1,0 +1,78 @@
+{
+  "main_navigations": [
+    {
+      "label": "About",
+      "url": "/",
+      "target": "_blank",
+      "items": []
+    },
+    {
+      "label": "Committee",
+      "url": "/",
+      "target": "_blank",
+      "items": []
+    },
+    {
+      "label": "Awards",
+      "url": "/",
+      "target": "_blank",
+      "items": []
+    },
+    {
+      "label": "Contact",
+      "url": "/",
+      "target": "_blank",
+      "items": []
+    }
+  ],
+  "social_medias": [
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "instagram",
+      "iconClass": "pi pi-instagram"
+    },
+    {
+      "label": "Linkedin",
+      "url": "https://linkedin.com",
+      "icon": "linkedin",
+      "iconClass": "pi pi-linkedin"
+    },
+    {
+      "label": "Tiktok",
+      "url": "https://www.tiktok.com",
+      "icon": "tiktok",
+      "iconClass": "pi pi-tiktok"
+    },
+    {
+      "label": "X",
+      "url": "https://x.com?lang=en",
+      "icon": "x",
+      "iconClass": "pi pi-x"
+    },
+    {
+      "label": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "facebook",
+      "iconClass": "pi pi-facebook"
+    },
+    {
+      "label": "Youtube",
+      "url": "https://www.youtube.com",
+      "icon": "youtube",
+      "iconClass": "pi pi-youtube"
+    }
+  ],
+  "footer_links": [
+    {
+      "label": "Terms",
+      "url": "/",
+      "target": "_blank"
+    },
+    {
+      "label": "Privacy Policy",
+      "url": "/",
+      "target": "_blank"
+    }
+  ]
+}

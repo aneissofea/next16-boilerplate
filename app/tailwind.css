@@ -311,7 +311,7 @@
         background-color: var(--color-neutrals);
         color: var(--color-neutrals-900);
         scroll-behavior: smooth;
-        scrollbar-color: var(--color-primary-400) var(--color-primary);
+        scrollbar-color: var(--color-primary) var(--color-primary-400);
         -webkit-tap-highlight-color: transparent;
     }
 
@@ -353,7 +353,7 @@
     }
 
     a:not(.p-button) {
-        @apply text-primary underline;
+        @apply text-primary;
     }
 
     .custom-html {

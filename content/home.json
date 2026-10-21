@@ -1,0 +1,17 @@
+{
+  "title": "Home",
+  "slug": "/",
+  "seo_settings": {
+    "metaTitle": "",
+    "metaDescription": ""
+  },
+  "sections": [
+    {
+      "type": "home-banner",
+      "bg_image": {
+        "url": null,
+        "alternativeText": null
+      }
+    }
+  ]
+}
