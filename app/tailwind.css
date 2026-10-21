@@ -1,0 +1,398 @@
+@import "tailwindcss";
+@import "./font.css";
+
+@theme {
+    /* Breakpoints */
+    --breakpoint-xs: 428px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1440px;
+    --breakpoint-3xl: 1800px;
+
+    /* Fonts: declared in font.css. Archivo is the base, Playfair the serif accent. */
+    --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --font-serif: "Playfair Display", Georgia, serif;
+
+    --color-primary: #960414;
+    --color-primary-50: #FEF3F1;
+    --color-primary-100: #FEE3DF;
+    --color-primary-200: #FFCBC4;
+    --color-primary-300: #FEA69B;
+    --color-primary-400: #FE695E;
+    --color-primary-500: #F83634;
+    --color-primary-600: #E50019;
+    --color-primary-700: #B90815;
+    --color-primary-800: #960414;
+    --color-primary-900: #7B000D;
+    --color-primary-950: #410607;
+
+    --color-secondary: #e2896a;
+    --color-secondary-50: #fdf3ee;
+    --color-secondary-100: #f9e0d6;
+    --color-secondary-200: #f3c2ad;
+    --color-secondary-300: #eba384;
+    --color-secondary-400: #e2896a;
+    --color-secondary-500: #d06c4a;
+    --color-secondary-600: #b35437;
+    --color-secondary-700: #8f412b;
+    --color-secondary-800: #6c3222;
+    --color-secondary-900: #4a2318;
+    --color-secondary-950: #2b140d;
+
+    --color-neutrals: #FFFFFF;
+    --color-neutrals-50: #FAFAFA;
+    --color-neutrals-100: #F4F4F5;
+    --color-neutrals-200: #E4E4E7;
+    --color-neutrals-300: #D4D4D8;
+    --color-neutrals-400: #A1A1AA;
+    --color-neutrals-500: #71717A;
+    --color-neutrals-600: #52525B;
+    --color-neutrals-700: #3F3F46;
+    --color-neutrals-800: #27272A;
+    --color-neutrals-900: #1D1D21;
+    --color-neutrals-950: #09090B;
+
+    /* Type scale */
+    --font-size-display: clamp(2.75rem, 7.4vw, 6rem);
+    --line-height-display: 0.9;
+
+    /* Heading 1 */
+    --font-size-heading-1: 65px;
+    --line-height-heading-1: 0.8;
+    --font-weight-heading-1: 900;
+
+    --font-size-heading-2: clamp(2.125rem, 4.6vw, 4rem);
+    --line-height-heading-2: 0.95;
+    --font-weight-heading-2: 800;
+
+    --font-size-heading-3: clamp(1.75rem, 3vw, 2.5rem);
+    --line-height-heading-3: 1;
+    --font-weight-heading-3: 800;
+
+    --font-size-heading-4: clamp(1.5rem, 2.4vw, 2rem);
+    --line-height-heading-4: 1.05;
+    --font-weight-heading-4: 700;
+
+    --font-size-heading-5: clamp(1.25rem, 2vw, 1.5rem);
+    --line-height-heading-5: 1.1;
+    --font-weight-heading-5: 700;
+
+    --font-size-heading-6: clamp(1.125rem, 1.6vw, 1.25rem);
+    --line-height-heading-6: 1.15;
+    --font-weight-heading-6: 700;
+
+    --font-size-large: clamp(1.0625rem, 1.3vw, 1.25rem);
+    --line-height-large: 1.5;
+    --font-weight-large: 400;
+
+    --font-size-medium: 1rem;
+    --line-height-medium: 1.55;
+    --font-weight-medium: 400;
+
+    --font-size-small: 0.875rem;
+    --line-height-small: 1.45;
+    --font-weight-small: 400;
+
+    /* Tag type: condensed caps, the voice of every label and price */
+    --font-size-tag: 0.75rem;
+    --font-size-tag-lg: 0.875rem;
+
+    --font-size-button: 0.875rem;
+    --line-height-button: 1;
+    --font-weight-button: 700;
+
+    --font-size-caption: 0.8125rem;
+    --line-height-caption: 1.4;
+    --font-weight-caption: 400;
+
+    /* Motion */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+    /* Water surface sliding across the loading logo */
+    --animate-wave: wave 1.6s linear infinite;
+    @keyframes wave {
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Depth: soft, offset, tinted by ink */
+    --shadow-float: 0 28px 36px -18px rgb(15 42 74 / 0.42);
+    --shadow-float-lift: 0 44px 48px -22px rgb(15 42 74 / 0.5);
+    --shadow-tag: 0 14px 28px -12px rgb(15 42 74 / 0.45);
+
+    --container-measure: 38rem;
+}
+
+/* Per-breakpoint type sizes. @theme only takes plain custom properties,
+   so the overrides of its base values live here on :root. */
+:root {
+    @media (width >= theme(--breakpoint-md)) {
+        --font-size-heading-1: 80px;
+    }
+    @media (width >= theme(--breakpoint-lg)) {
+        --font-size-heading-1: 100px;
+    }
+    @media (width >= theme(--breakpoint-2xl)) {
+        --font-size-heading-1: 150px;
+    }
+}
+
+@utility container {
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 100rem;
+    @media (width >= theme(--breakpoint-sm)) {
+        padding-inline: 2rem;
+    }
+    @media (width >= theme(--breakpoint-lg)) {
+        padding-inline: 3rem;
+    }
+}
+
+@utility text-display {
+    font-size: var(--font-size-display);
+    line-height: var(--line-height-display);
+    font-weight: 800;
+    font-stretch: 125%;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+@utility text-heading-1 {
+    font-size: var(--font-size-heading-1);
+    line-height: var(--line-height-heading-1);
+    font-weight: var(--font-weight-heading-1);
+    font-stretch: 125%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+@utility text-heading-2 {
+    font-size: var(--font-size-heading-2);
+    line-height: var(--line-height-heading-2);
+    font-weight: var(--font-weight-heading-2);
+    font-stretch: 125%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+@utility text-heading-3 {
+    font-size: var(--font-size-heading-3);
+    line-height: var(--line-height-heading-3);
+    font-weight: var(--font-weight-heading-3);
+    font-stretch: 112%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+@utility text-heading-4 {
+    font-size: var(--font-size-heading-4);
+    line-height: var(--line-height-heading-4);
+    font-weight: var(--font-weight-heading-4);
+    letter-spacing: -0.015em;
+}
+
+@utility text-heading-5 {
+    font-size: var(--font-size-heading-5);
+    line-height: var(--line-height-heading-5);
+    font-weight: var(--font-weight-heading-5);
+}
+
+@utility text-heading-6 {
+    font-size: var(--font-size-heading-6);
+    line-height: var(--line-height-heading-6);
+    font-weight: var(--font-weight-heading-6);
+}
+
+@utility text-large {
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
+    font-weight: var(--font-weight-large);
+}
+
+@utility text-medium {
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-medium);
+    font-weight: var(--font-weight-medium);
+}
+
+@utility text-small {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+    font-weight: var(--font-weight-small);
+}
+
+@utility text-tag {
+    font-size: var(--font-size-tag);
+    line-height: 1.2;
+    font-weight: 650;
+    font-stretch: 75%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+}
+
+@utility text-tag-lg {
+    font-size: var(--font-size-tag-lg);
+    line-height: 1.2;
+    font-weight: 700;
+    font-stretch: 75%;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+}
+
+@utility text-button {
+    font-size: var(--font-size-button);
+    line-height: var(--line-height-button);
+    font-weight: var(--font-weight-button);
+    font-stretch: 75%;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+@utility text-caption {
+    font-size: var(--font-size-caption);
+    line-height: var(--line-height-caption);
+    font-weight: var(--font-weight-caption);
+}
+
+/* Primary colour sweeps across the text left-to-right on hover, and back on leave.
+   The letters are transparent so the colour layers show through; an inherited
+   text-shadow would show through too and grey the text, so it is removed.
+   Add drop-shadow-* if the text needs a shadow. */
+@utility text-hover {
+    text-decoration: none;
+    background-image: linear-gradient(var(--color-primary), var(--color-primary)), linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 0% 100%, 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    transition: background-size 3s var(--ease-out-expo);
+
+    &:hover,
+    &:focus-visible {
+        background-size: 100% 100%, 100% 100%;
+    }
+}
+
+/* Text leans right on hover: the baseline stays put and the top slides right.
+   Override the lean with [--slant:-20deg] for a stronger slant. */
+@utility text-slant {
+    display: inline-block;
+    transform-origin: bottom;
+    transition: transform 0.8s var(--ease-out-expo);
+
+    &:hover,
+    &:focus-visible {
+        transform: skewX(var(--slant, -12deg));
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+/* Base styles */
+@layer base {
+    html {
+        font-family: var(--font-sans);
+        background-color: var(--color-neutrals);
+        color: var(--color-neutrals-900);
+        scroll-behavior: smooth;
+        scrollbar-color: var(--color-primary-400) var(--color-primary);
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
+
+    body {
+        font-size: var(--font-size-medium);
+        line-height: var(--line-height-medium);
+        font-weight: var(--font-weight-medium);
+        font-optical-sizing: auto;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: clip;
+    }
+
+    hr {
+        @apply my-6;
+    }
+
+    ol {
+        @apply pl-8;
+        list-style: revert;
+    }
+
+    ul {
+        @apply pl-8;
+        list-style: revert;
+    }
+
+    a:not([class]) {
+        color: inherit;
+    }
+
+    a:not([class]):hover {
+        text-decoration-thickness: 2px;
+    }
+
+    a:not(.p-button) {
+        @apply text-primary underline;
+    }
+
+    .custom-html {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .custom-html a{
+        @apply no-underline hover:underline;
+    }
+
+    .custom-html ol,
+    .custom-html ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin:0.5rem 0;
+    }
+}
+
+/* To update the pagination styling inside the Slider wrappers */
+[class*="custom-swiper-pagination"] .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-neutrals-500);
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    margin: 0 0 !important;
+    opacity: 0.7;
+}
+
+[class*="custom-swiper-pagination"] .swiper-pagination-bullet-active {
+    background-color: var(--color-primary);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+[class*="custom-swiper-pagination"].swiper-pagination {
+    position: static;
+    width: fit-content !important;
+}
