@@ -8,6 +8,22 @@
   "sections": [
     {
       "type": "home-banner",
+      "title": "Example 1",
+      "description": "<p>Lorem ipsum dolor sit amet consectetur ip ilim.</p>",
+      "buttons": [
+        {
+          "label": "Button 1",
+          "url": "/",
+          "target": "_self",
+          "style": "Primary"
+        },
+        {
+          "label": "Button 2",
+          "url": "/",
+          "target": "_blank",
+          "style": "Secondary"
+        }
+      ],
       "bg_image": {
         "url": null,
         "alternativeText": null

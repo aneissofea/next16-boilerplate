@@ -3,6 +3,7 @@ import "./globals.css";
 import "./tailwind.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import Providers from "@/app/providers";
 
 export const metadata: Metadata = {
   icons: {
@@ -26,9 +27,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`h-full antialiased`}
     >
       <body className="relative min-h-full flex flex-col">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

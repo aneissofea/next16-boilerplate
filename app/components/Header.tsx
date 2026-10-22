@@ -6,7 +6,7 @@ export default function Header() {
     const nav = getNavigation();
 
     return (
-        <div className="fixed top-0 z-50 w-full bg-white">
+        <div className="sticky top-0 z-50 w-full bg-white">
             <div className="container py-4 flex justify-between">
                 <Link href="/">
                     <Image src="/next.svg" alt="Next.js logo" className=""

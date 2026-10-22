@@ -12,9 +12,19 @@ export type PartialImage = {
     alternativeText: string;
 };
 
+export type PartialButton= {
+    label: string;
+    url: string;
+    target: string;
+    style: string;
+};
+
 // Sections
 export type HomeBannerSection = {
     type: "home-banner";
+    title: string | null;
+    description: string;
+    buttons: PartialButton[];
     bg_image: PartialImage;
 };
 

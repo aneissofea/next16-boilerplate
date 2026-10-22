@@ -311,8 +311,6 @@
         background-color: var(--color-neutrals);
         color: var(--color-neutrals-900);
         scroll-behavior: smooth;
-        scrollbar-color: var(--color-primary) var(--color-primary-400);
-        -webkit-tap-highlight-color: transparent;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -327,7 +325,6 @@
         font-weight: var(--font-weight-medium);
         font-optical-sizing: auto;
         -webkit-font-smoothing: antialiased;
-        overflow-x: clip;
     }
 
     hr {
