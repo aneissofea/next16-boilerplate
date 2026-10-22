@@ -24,5 +24,10 @@ export default async function Page({ params }: PageProps<"/[slug]">) {
 
     if (!page) notFound(); // like throw createError({ statusCode: 404 })
 
-    return <SectionRenderer sections={page.sections}/>;
+    return (
+        <>
+            <h1 className="sr-only">{page.title}</h1>
+            <SectionRenderer sections={page.sections}/>
+        </>
+    );
 }

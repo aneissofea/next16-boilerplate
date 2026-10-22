@@ -9,6 +9,8 @@ export default function SectionRenderer({ sections }: { sections: PageSection[] 
         switch (section.type) {
             case 'home-banner':
                 return <SectionHomeBanner key={i} section={section}/>;
+            case 'clause':
+                return <SectionClause key={i} section={section}/>;
             default:
                 // Type error here = a PageSection type is missing its case above
                 // At runtime, unknown types from the CMS are skipped instead of crashing

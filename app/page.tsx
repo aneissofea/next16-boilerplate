@@ -12,6 +12,7 @@ export default function Home() {
     return (
         <>
             <LoadingScreen/>
+            <h1 className="sr-only">{page.title}</h1>
             <SectionRenderer sections={page.sections}/>
         </>
     );
