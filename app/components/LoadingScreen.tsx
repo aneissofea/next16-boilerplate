@@ -84,7 +84,7 @@ export default function LoadingScreen() {
                 <div className="absolute inset-0 bg-white/10" />
 
                 {/* The water */}
-                <div className="absolute inset-x-0 bottom-0 bg-white" style={{ height: `${percent}%` }}>
+                <div className="absolute inset-x-0 bottom-0 bg-white border border-white" style={{ height: `${percent}%` }}>
                     {rounded > 0 && rounded < 100 && (
                         <svg
                             viewBox="0 0 200 10"
@@ -98,7 +98,7 @@ export default function LoadingScreen() {
                 </div>
             </div>
 
-            <p className="text-[20px] tabular-nums" aria-hidden>
+            <p className="text-xl tabular-nums" aria-hidden>
                 {rounded}%
             </p>
         </div>
