@@ -8,26 +8,74 @@
   "sections": [
     {
       "type": "home-banner",
-      "title": "Example 1",
-      "description": "<p>Lorem ipsum dolor sit amet consectetur ip ilim.</p>",
-      "buttons": [
+      "items": [
         {
-          "label": "Button 1",
-          "url": "/",
-          "target": "_self",
-          "style": "Primary"
+          "title": "Example 1",
+          "description": "<p>Lorem ipsum dolor sit amet consectetur ip ilim.</p>",
+          "buttons": [
+            {
+              "label": "Button 1",
+              "url": "/",
+              "target": "_self",
+              "style": "Primary"
+            },
+            {
+              "label": "Button 2",
+              "url": "/",
+              "target": "_blank",
+              "style": "Secondary"
+            }
+          ],
+          "bg_image": {
+            "url": null,
+            "alternativeText": null
+          }
         },
         {
-          "label": "Button 2",
-          "url": "/",
-          "target": "_blank",
-          "style": "Secondary"
+          "title": "Example 2",
+          "description": "<p>Lorem ipsum dolor sit amet consectetur ip ilim.</p>",
+          "buttons": [
+            {
+              "label": "Button 1",
+              "url": "/",
+              "target": "_self",
+              "style": "Primary"
+            },
+            {
+              "label": "Button 2",
+              "url": "/",
+              "target": "_blank",
+              "style": "Secondary"
+            }
+          ],
+          "bg_image": {
+            "url": null,
+            "alternativeText": null
+          }
+        },
+        {
+          "title": "Example 3",
+          "description": "<p>Lorem ipsum dolor sit amet consectetur ip ilim.</p>",
+          "buttons": [
+            {
+              "label": "Button 1",
+              "url": "/",
+              "target": "_self",
+              "style": "Primary"
+            },
+            {
+              "label": "Button 2",
+              "url": "/",
+              "target": "_blank",
+              "style": "Secondary"
+            }
+          ],
+          "bg_image": {
+            "url": null,
+            "alternativeText": null
+          }
         }
-      ],
-      "bg_image": {
-        "url": null,
-        "alternativeText": null
-      }
+      ]
     }
   ]
 }

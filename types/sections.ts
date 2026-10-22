@@ -20,12 +20,16 @@ export type PartialButton= {
 };
 
 // Sections
-export type HomeBannerSection = {
-    type: "home-banner";
+export type HomeBannerItem = {
     title: string | null;
     description: string;
     buttons: PartialButton[];
     bg_image: PartialImage;
+};
+
+export type HomeBannerSection = {
+    type: "home-banner";
+    items: HomeBannerItem[];
 };
 
 export type ClauseSection = {
