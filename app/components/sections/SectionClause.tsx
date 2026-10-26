@@ -4,7 +4,7 @@ import Description from "@/app/components/ui/typography/Description";
 export default function SectionClause({ section }: { section: ClauseSection }) {
     return (
         <section className="container flex flex-col">
-            <div className="py-16 flex flex-col gap-12 w-full max-w-5xl mx-auto">
+            <div className="py-10 md:py-16 flex flex-col gap-12 w-full max-w-5xl mx-auto">
                 {section.title && <h2 className="text-heading-2 font-extrabold! italic text-primary">{section.title}</h2>}
 
                 <div className="flex flex-col gap-10">

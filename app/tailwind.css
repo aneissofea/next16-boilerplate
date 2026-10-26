@@ -327,6 +327,11 @@
         -webkit-font-smoothing: antialiased;
     }
 
+    ::selection {
+        background-color: var(--color-primary);
+        color: var(--color-neutrals-50);
+    }
+
     hr {
         @apply my-6;
     }
