@@ -10,8 +10,8 @@ export default function Header() {
         <div className="sticky top-0 z-50 w-full bg-white">
             <div className="container py-2 md:py-4 flex items-center justify-between">
                 <Link href="/">
-                    <Image src="/next.svg" alt="Next.js logo" className=""
-                        width={80} height={40} priority/>
+                    <Image src="/next.svg" alt="Next.js logo" className="w-20 h-auto"
+                        width={394} height={80} preload/>
                 </Link>
                 <div className="hidden md:flex flex-row gap-10 justify-between">
                     {nav.main_navigations.map((link, index) => (

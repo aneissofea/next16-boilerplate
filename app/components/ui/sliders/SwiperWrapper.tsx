@@ -1,6 +1,6 @@
 "use client";
 
-import { Children, useId, useState, type ReactNode } from "react";
+import { Children, Suspense, useId, useState, type ReactNode } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperInstance, SwiperOptions } from "swiper/types";
@@ -17,6 +17,8 @@ type SwiperWrapperProps = {
     loop?: boolean;
     className?: string;
     navClassName?: string;
+    // Shown in the prerendered HTML until Swiper renders on request (see Suspense below)
+    fallback?: ReactNode;
 };
 
 const defaultBreakpoints: SwiperOptions["breakpoints"] = {
@@ -33,6 +35,7 @@ export default function SwiperWrapper({
     loop = false,
     className = "",
     navClassName = "",
+    fallback = null,
 }: SwiperWrapperProps) {
     const slides = Children.toArray(children);
 
@@ -54,24 +57,28 @@ export default function SwiperWrapper({
 
     return (
         <div className={`relative flex flex-col gap-6 ${className}`}>
-            <Swiper
-                modules={[Pagination, Autoplay]}
-                loop={loop}
-                autoplay={autoplay}
-                breakpoints={breakpoints}
-                pagination={{ el: `.${paginationClass}`, clickable: true, type: "bullets" }}
-                onSwiper={(s) => { setSwiper(s); syncState(s); }}
-                onSlideChange={syncState}
-                onLock={syncState}
-                onUnlock={syncState}
-                onBreakpoint={syncState}
-                // Equal-height slides: let flexbox stretch every slide to the tallest one
-                className="w-full [&_.swiper-slide]:h-auto"
-            >
-                {slides.map((slide, i) => (
-                    <SwiperSlide key={i} className="flex">{slide}</SwiperSlide>
-                ))}
-            </Swiper>
+            {/* Swiper reads Date.now() while rendering, which Cache Components can't prerender.
+                Suspense keeps it out of the static shell so it renders per request instead. */}
+            <Suspense fallback={fallback}>
+                <Swiper
+                    modules={[Pagination, Autoplay]}
+                    loop={loop}
+                    autoplay={autoplay}
+                    breakpoints={breakpoints}
+                    pagination={{ el: `.${paginationClass}`, clickable: true, type: "bullets" }}
+                    onSwiper={(s) => { setSwiper(s); syncState(s); }}
+                    onSlideChange={syncState}
+                    onLock={syncState}
+                    onUnlock={syncState}
+                    onBreakpoint={syncState}
+                    // Equal-height slides: let flexbox stretch every slide to the tallest one
+                    className="w-full [&_.swiper-slide]:h-auto"
+                >
+                    {slides.map((slide, i) => (
+                        <SwiperSlide key={i} className="flex">{slide}</SwiperSlide>
+                    ))}
+                </Swiper>
+            </Suspense>
 
             {/* Always rendered so Swiper can find the pagination element on init; hidden when locked */}
             <div className={`flex flex-col gap-4 justify-center items-center mx-auto ${isLocked ? "hidden" : ""} ${navClassName}`}>

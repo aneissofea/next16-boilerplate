@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 // Like Nuxt's runtimeConfig.public.siteName; set NEXT_PUBLIC_SITE_NAME in .env to override.
-export const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Lewis Hamilton";
+export const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "";
 
 export type SeoSettings = {
     metaTitle?: string;
